@@ -7,9 +7,10 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float accelerationSpeed; 
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Transform cam;
 
     private int moveDirect; 
-    public float speed; 
+    private float speed; 
 
     private void Update(){
         if (Input.GetKey(KeyCode.W)){
@@ -36,5 +37,6 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate(){
         rb.velocity = new Vector3(0, 0, speed * moveDirect * Time.deltaTime);
+        transform.rotation = Quaternion.LookRotation(cam.forward); 
     }
 }
