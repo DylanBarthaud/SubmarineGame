@@ -10,23 +10,34 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private Transform cam;
 
     private int moveDirect; 
-    private float speed; 
+    private float speed;
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = transform.GetChild(0).GetComponent<Animator>();
+    }
 
     private void Update(){
         if (Input.GetKey(KeyCode.W)){
+            if(moveDirect == -1) { speed = -speed; }
             moveDirect = 1;
             speed += accelerationSpeed * Time.deltaTime;
+            animator.SetBool("playerIsMoving", true); 
         }
 
         else if (Input.GetKey(KeyCode.S)){
-            moveDirect= -1;
+            if (moveDirect == 1) { speed = -speed; }
+            moveDirect = -1;
             speed += accelerationSpeed * Time.deltaTime;
+            animator.SetBool("playerIsMoving", true);
         } 
 
         else { 
             speed = Mathf.Lerp(speed, 0, 5 * Time.deltaTime);
+            animator.SetBool("playerIsMoving", false);
             if (speed < 0.01f){
-                speed = 0; 
+                speed = 0;
             }
         }
 
@@ -36,7 +47,7 @@ public class Player_Movement : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        rb.velocity = new Vector3(0, 0, speed * moveDirect * Time.deltaTime);
+        rb.velocity = (transform.forward * moveDirect) * speed * Time.deltaTime;
         transform.rotation = Quaternion.LookRotation(cam.forward); 
     }
 }
