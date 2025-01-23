@@ -16,7 +16,7 @@ public class SeaCreatureSounds : MonoBehaviour{
         if(timer <= 0){
             audioSource.clip = clips[Random.Range(0, clips.Length)];
             audioSource.Play();
-            timer = Random.Range(10, 40);
+            timer = Random.Range(30, 60);
         }
         timer -= Time.deltaTime;
     }

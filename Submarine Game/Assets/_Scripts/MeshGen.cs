@@ -31,7 +31,7 @@ public class MeshGen : MonoBehaviour
 
         if(bubbleTime < 0){
             spawnBubbles = true;
-            bubbleTime = 2f; 
+            bubbleTime = 0f; 
         }
         bubbleTime -= Time.deltaTime;
     }
@@ -103,7 +103,9 @@ public class MeshGen : MonoBehaviour
 
                 bubbleSpawners.RemoveAll(item => item == null);
                 foreach (GameObject bubbleSp in bubbleSpawners){
-                    if (Vector3.Distance(bubbleSp.transform.position, transform.TransformPoint(bubbleLocs[x])) < 30){
+                    if (Vector3.Distance(bubbleSp.transform.position, transform.TransformPoint(bubbleLocs[x])) < 30 
+                        || Vector3.Distance(transform.TransformPoint(bubbleLocs[x]), GameManager.Instance.GetPlayer().transform.position) < 10)
+                    {
                         alreadyExists = true;
                         break;
                     }

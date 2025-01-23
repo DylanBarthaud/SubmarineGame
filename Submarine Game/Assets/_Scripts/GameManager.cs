@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class GameManager : MonoBehaviour
 {
@@ -20,11 +21,13 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    void Start(){   
-        Cursor.visible = false;
-    }
-
     public GameObject GetPlayer(){
         return player;
+    }
+
+    public void LoadScene(int sceneId) {
+        if (sceneId == 0) { Cursor.visible = true; }
+        else { Cursor.visible = false; }
+        SceneManager.LoadScene(sceneId);
     }
 }

@@ -69,4 +69,8 @@ public class Player : MonoBehaviour
     public float GetAirTime() {
         return airLeft;
     }
+
+    private void OnDestroy(){
+        GameManager.Instance.LoadScene(0); 
+    }
 }
