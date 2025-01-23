@@ -6,10 +6,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance; 
     public static GameManager Instance {
-        get
-        {
-            if (instance == null)
-            {
+        get{
+            if (instance == null){
                 Debug.LogError("GameManager is null");   
             }
             return instance;
@@ -18,8 +16,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    private void Awake()
-    {
+    private void Awake(){
         instance = this;
     }
 

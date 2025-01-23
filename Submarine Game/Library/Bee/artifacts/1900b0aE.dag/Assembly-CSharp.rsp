@@ -370,9 +370,13 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"E:/unity/2022.3.50f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"E:/unity/2022.3.50f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/SeaCreatureSounds.cs"
+"Assets/ThermalVent.cs"
+"Assets/TimerScript.cs"
+"Assets/_Scripts/AirSource.cs"
 "Assets/_Scripts/GameManager.cs"
 "Assets/_Scripts/MeshGen.cs"
-"Assets/_Scripts/Player/Player_Movement.cs"
+"Assets/_Scripts/Player/Player.cs"
 -langversion:9.0
 /deterministic
 /optimize+
