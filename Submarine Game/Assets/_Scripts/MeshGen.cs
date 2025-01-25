@@ -31,7 +31,7 @@ public class MeshGen : MonoBehaviour
 
         if(bubbleTime < 0){
             spawnBubbles = true;
-            bubbleTime = 0f; 
+            bubbleTime = 0.5f; 
         }
         bubbleTime -= Time.deltaTime;
     }

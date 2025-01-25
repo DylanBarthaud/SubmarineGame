@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform cam;
 
+    [SerializeField] List<GameObject> artefacts = new List<GameObject>();
+
     private int moveDirect;
     private float speed;
     private Animator animator;
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
     private void Start(){
         airLeft = airTime; 
         animator = transform.GetChild(0).GetComponent<Animator>();
+        cam = Camera.main.transform; 
     }
 
     private void Update(){
@@ -70,7 +73,11 @@ public class Player : MonoBehaviour
         return airLeft;
     }
 
+    public void AddArtefact(GameObject artefact){
+        artefacts.Add(artefact);
+    }
+
     private void OnDestroy(){
-        GameManager.Instance.LoadScene(0); 
+        GameManager.Instance.LoadScene(2); 
     }
 }
